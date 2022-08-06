@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %} {% block body %}
+<h2>WatchList</h2>
+<ul>
+  {% for listing in listings %} {% if not listing.sold %}
+
+  <div class="card mb-3 col-sm-6  " style="max-width: 540px;">
+    <div class="row ">
+      <div class="col mu-3 ">
+        <img src="{{ listing.image_url }}" class="img-fluid  " alt="..." />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+          </h5>
+          <div><strong>Bid: </strong>${{ listing.price }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %} 
+  
+  {% empty %}
+  <li>WatchList is Empty</li>
+
+  {% endfor %}
+</ul>
+
+{% endblock %}

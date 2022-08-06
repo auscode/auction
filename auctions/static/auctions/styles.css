@@ -1,0 +1,38 @@
+body {
+    padding: 10px;
+}
+
+.acList, .catView {
+    border: 1px solid lightgray;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.catName {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.alTitle {
+    text-align: center;
+    text-decoration: underline
+}
+
+.comment,.cmtList {
+    border: 1px solid lightgray;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.cmtBtn {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+.form-group {
+    width: 50%;
+}

@@ -1,0 +1,49 @@
+{% extends "auctions/listing.html" %} {% block body %}
+<h2>Categories</h2>
+
+<form action="{% url 'categories' %}" method="post">
+  {% csrf_token %}
+  <!--select tag for Drop down list-->
+  <select name="categories">
+    {% for category in categories %}
+    <option style="" value="{{ category.id }}">{{ category }}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" class="btn btn-primary" />
+</form>
+
+<h2 class="catName">{{ category }}</h2>
+<ul style="list-style-type: none">
+  {% comment %} {%if listing.sold is True %} {% endcomment %}
+  {% for listing in listings %}
+  <div class="card mb-3 catView">
+    <table style="width: 100%">
+      <tbody>
+        <tr>
+          <td style="width: 40px">
+            <img src="{{ listing.image_url }}" style="width: 80%" />
+          </td>
+          <td style="width: 60%" valign="top">
+            <h5>
+              {% if user.is_authenticated %}
+              <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+              {% else %}
+              <a href="{% url 'login' %}">{{ listing.title }}</a>
+              {% endif %}
+            </h5>
+            <div>{{ listing.description }}</div>
+            <div><strong>Bid: </strong>${{ listing.price }}</div>
+            <div><strong>Listed by: </strong> {{ listing.user }}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {% empty %} {% endfor %}
+  {% comment %} {%else%}
+      <li>No listings in this category</li>
+        {% endif %}  {% endcomment %}
+</ul>
+
+{% endblock %}
