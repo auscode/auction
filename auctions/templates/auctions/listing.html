@@ -18,11 +18,9 @@
                     <div></strong>Bid: </strong>$ <input type="number" min="{{ listing.price }}" step="0.01" name="bid" placeholder="{{ listing.price }}">
                         <input type="submit" class="btn btn-primary btn-sm"> </div>
                 </form>
-
                 <br>
-
-                <div><strong>Category: </strong>{{ category }}</div>
-                <div><strong>Listed by: </strong>{{ listing.user }}</div>
+                <div class="mb-1"><strong>Category: </strong>{{ category }}</div>
+                <div class="mb-1"><strong>Listed by: </strong>{{ listing.user }}</div>
 
                 <div class="checkbox" >
                     {% if watching %}
