@@ -9,13 +9,14 @@
     </head>
     <body>
         <h1>Auctions</h1>
-        <div>
+        <div >
             {% if user.is_authenticated %}
-                <h6>Logged in as <strong>{{ user.username }}</strong>.</h6>
+                <h6 class="alert alert-success float-right" role="alert">Logged in as <strong>{{ user.username }}</strong>.</h6>
             {% comment %} {% else %}
                 <h6><a href="{% url 'login' %}">Sign In</h6> {% endcomment %}
             {% endif %}
         </div>
+        <br> 
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
@@ -28,7 +29,8 @@
                     <a class="nav-link" href="{% url 'newListing' %}">Create Listing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'watchlist' user.id %}">WatchList<span class="badge badge-dark">{{list.id}}</span></a>
+                    <a class="nav-link" href="{% url 'watchlist' user.id %}">WatchList<span class="badge badge-dark">{{watchlist.id}}</span}}</span></a>
+                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Log Out</a>

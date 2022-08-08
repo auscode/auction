@@ -61,3 +61,4 @@ class WatchList(models.Model):
     )
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     watching = models.BooleanField(default=False)
+
