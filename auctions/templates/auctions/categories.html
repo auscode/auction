@@ -4,13 +4,13 @@
 <form action="{% url 'categories' %}" method="post">
   {% csrf_token %}
   <!--select tag for Drop down list-->
-  <select name="categories">
+  <select name="categories" style="width: 70px;" class="ml-2"> 
     {% for category in categories %}
-    <option style="" value="{{ category.id }}">{{ category }}</option>
+    <option value="{{ category.id }}">{{ category }}</option>
     {% endfor %}
   </select>
-  <input type="submit" class="btn btn-primary" />
-</form>
+  <input type="submit" class="btn btn-outline-success btn-sm" />
+</form> 
 
 <h2 class="catName">{{ category }}</h2>
 <ul style="list-style-type: none">

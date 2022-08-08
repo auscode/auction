@@ -51,7 +51,7 @@ class Comment(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        return f"{self.comment} - {self.user}"
+        return f"{self.user} - {self.comment}"
 
 
 class WatchList(models.Model):

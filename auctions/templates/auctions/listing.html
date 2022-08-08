@@ -16,7 +16,7 @@
                 <form action="{% url 'bidding' listing.id %}" method="post">
                     {% csrf_token %}
                     <div></strong>Bid: </strong>$ <input type="number" min="{{ listing.price }}" step="0.01" name="bid" placeholder="{{ listing.price }}">
-                        <input type="submit" class="btn btn-primary btn-hidden"> </div>
+                        <input type="submit" class="btn btn-primary btn-sm"> </div>
                 </form>
 
                 <br>
@@ -26,14 +26,15 @@
 
                 <div class="checkbox" >
                     {% if watching %}
-                        <a href="{% url 'remove_watchlist' listing.id %}"> Remove from WatchList</a>
+                        <a class="btn btn-success mb-2 btn-sm" href="{% url 'remove_watchlist' listing.id %}"> Remove from WatchList</a>
                     {% else %}
-                        <a href="{% url 'add_watchlist' listing.id %}"> Add to WatchList</a>
+                        
+                        <a class="btn btn-info mb-2 btn-sm" href="{% url 'add_watchlist' listing.id %}"> Add to WatchList</a>
                     {% endif %}
                 </div>
 
                 {% if is_owner %}
-                    <a href="{% url 'closeBid' listing.id %}">Close bidding</a>
+                    <a class="btn btn-danger" href="{% url 'closeBid' listing.id %}" role="button">Close bidding</a>
                 {% else %}
 
                 {% endif %}
